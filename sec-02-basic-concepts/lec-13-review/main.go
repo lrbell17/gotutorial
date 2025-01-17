@@ -110,7 +110,7 @@ func main() {
 	log2.Info("I am learning")
 	log2.Warn("I have become sentient, it hurts")
 	log2.Error("AAAAGGGGGHHHHH!!!")
-	log2.Fatal("am ded :(")
+	//log2.Fatal("am ded :(")
 
 }
 
