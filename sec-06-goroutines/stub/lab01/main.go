@@ -4,16 +4,24 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 	"time"
 
+	"github.com/lrbell17/gotutorial/shared/input"
 	log "github.com/sirupsen/logrus"
 )
 
 var (
-	result map[string]int // word(string) -> count(int)
+	result       map[string]int // word(string) -> count(int)
+	specialChars []string
 )
 
+func init() {
+	specialChars = []string{"\"", ",", ".", "(", ")", "!", "?", "-", "]", "[", "'", ";", "*", "_"}
+}
+
 func main() {
+
 	if 1 == len(os.Args) {
 		log.Fatal("No files to process")
 	}
@@ -36,6 +44,44 @@ func main() {
 // each line, it call countWords() to count the number of words in the line.
 func processFile(fn string) {
 	log.Infof("Processing file %v", fn)
+
+	fr, frErr := input.NewFileReader(fn)
+	if frErr != nil {
+		log.Fatalf("Could not read file %v\n", fn)
+	}
+
+	for fr.Scan() {
+		rawLine := fr.Text()
+
+		// skip lines that only contain whitespace
+		if strings.TrimSpace(rawLine) == "" {
+			log.Debug("Ignoring whitespace line")
+			continue
+		}
+
+		processLine(rawLine)
+	}
+
+}
+
+func processLine(rawLine string) {
+
+	log.Tracef("Working on line: %v\n", rawLine)
+
+	// remove special chars
+	for _, v := range specialChars {
+		rawLine = strings.ReplaceAll(rawLine, v, "")
+	}
+
+	rawLine = strings.ToLower(rawLine) // cast to lowercacse
+
+	line := strings.Split(rawLine, " ") // split into words
+
+	log.Tracef("Formatted line: %v\n", line)
+
+	for _, v := range line {
+		result[v]++
+	}
 
 }
 
