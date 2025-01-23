@@ -59,8 +59,9 @@ func main() {
 		fmt.Println(<-ch)
 	}
 
-	// range operator
 	fillCh(5, 3)
+
+	// range operator
 	// for v := range ch { // get a deadlock bc range keeps trying to read from channel even after we consume all records
 	// 	fmt.Println(v)
 	// }
