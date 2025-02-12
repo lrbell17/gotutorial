@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/striversity/glft/sec09/stub/exercise03/wc"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/exercise03/wc"
 )
 
 type (
@@ -21,7 +21,7 @@ func main() {
 	wc1 := new(wc.WriteCounter)
 	var w Writer = wc1
 	var buf []byte
-	
+
 	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < rand.Int()%100; i++ {
 		w.Write(buf)
