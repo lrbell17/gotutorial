@@ -2,9 +2,10 @@ package acura
 
 import (
 	"errors"
+	"fmt"
 	"time"
 
-	"github.com/striversity/glft/sec09/stub/exercise02/vehicle"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/exercise02/vehicle"
 )
 
 type (
@@ -14,13 +15,14 @@ type (
 	}
 	// vehicleData is private to package
 	vehicleData struct {
-		year  uint16
-		seats uint8
+		year       uint16
+		seats      uint8
+		powerTrain vehicle.PowerTrain
 	}
 )
 
 // NewTSX returns an initialized acura.TSX value
-func NewTSX(year uint16) (e *TSX, err error) {
+func NewTSX(year uint16, powerTrain vehicle.PowerTrain) (e *TSX, err error) {
 	// verify validity of year parameter
 	currentYear := uint16(time.Now().Year())
 	if year < 2006 || year > currentYear {
@@ -30,6 +32,7 @@ func NewTSX(year uint16) (e *TSX, err error) {
 	e = &TSX{}
 	e.year = year
 	e.seats = 5
+	e.powerTrain = powerTrain
 	return
 }
 
@@ -56,5 +59,13 @@ func (e *TSX) Type() int {
 }
 
 // TODO 1 - complete implementation of interface vehicle.Vehice for TSX
+func (e *TSX) PowerTrain() string {
+	return e.powerTrain.String()
+}
 
 // TODO 2 - implement fmt.Stringer for TSX
+func (e *TSX) String() string {
+	return fmt.Sprintf(
+		"Make: %v, Model: %v, Year: %v, Seats: %v, Type: %v, Power Train: %v",
+		e.Make(), e.Model(), e.Year(), e.SeatingCap(), vehicle.Type(e.Type()), e.PowerTrain())
+}

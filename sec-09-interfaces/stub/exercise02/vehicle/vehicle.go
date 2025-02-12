@@ -42,3 +42,16 @@ func Type(t int) string {
 		return "illegal vehicle type"
 	}
 }
+
+type PowerTrain int
+
+const (
+	Electric PowerTrain = iota
+	Hybrid
+	Gas
+	Diesel
+)
+
+func (p PowerTrain) String() string {
+	return [...]string{"electric", "hybrid", "gas", "diesel"}[p]
+}

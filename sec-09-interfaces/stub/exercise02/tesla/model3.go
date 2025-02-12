@@ -2,9 +2,10 @@ package tesla
 
 import (
 	"errors"
+	"fmt"
 	"time"
 
-	"github.com/striversity/glft/sec09/stub/exercise02/vehicle"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/exercise02/vehicle"
 )
 
 type (
@@ -56,5 +57,13 @@ func (e *Model3) Type() int {
 }
 
 // TODO 1 - complete implementation of interface vehicle.Vehice for Model3
+func (e *Model3) PowerTrain() string {
+	return vehicle.Electric.String()
+}
 
 // TODO 2 - implement fmt.Stringer for Model3
+func (e *Model3) String() string {
+	return fmt.Sprintf(
+		"Make: %v, Model: %v, Year: %v, Seats: %v, Type: %v, Power Train: %v",
+		e.Make(), e.Model(), e.Year(), e.SeatingCap(), vehicle.Type(e.Type()), e.PowerTrain())
+}
