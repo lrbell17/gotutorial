@@ -2,11 +2,8 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 
-	log "github.com/sirupsen/logrus"
-	"github.com/striversity/glft/sec09/stub/exercise04/wc"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/exercise04/wc"
 )
 
 type (
@@ -24,5 +21,11 @@ func main() {
 	fmt.Println(wc1)
 }
 
-// TODO 4 - implement the function storeData(), which takes a Writer and []string. 
+// TODO 4 - implement the function storeData(), which takes a Writer and []string.
 // storeData writes each string in the slice to the Writer
+func storeData(w Writer, data []string) {
+
+	for _, v := range data {
+		w.Write([]byte(v))
+	}
+}
