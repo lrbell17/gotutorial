@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/striversity/glft/sec09/stub/lab01/io"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/lab01/io"
 
-	"github.com/striversity/glft/sec09/stub/lab01/ms"
+	"github.com/lrbell17/gotutorial/sec-09-interfaces/stub/lab01/ms"
 )
 
 type (
