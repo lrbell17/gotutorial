@@ -1,6 +1,8 @@
 package rw
 
-import "io"
+import (
+	"io"
+)
 
 const (
 	headerFmt = "[REC_HEADER_%v]"
@@ -13,5 +15,6 @@ type (
 	RecordWriter struct {
 		// TODO 1 - complete definition of RecordWriter type
 		writer io.Writer
+		count  uint
 	}
 )

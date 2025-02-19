@@ -5,8 +5,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/striversity/glft/sec10/solution/exercise02/ms"
-	"github.com/striversity/glft/sec10/solution/exercise02/rw"
+	"github.com/lrbell17/gotutorial/sec-10-standard-packages/stub/exercise02/ms"
+	"github.com/lrbell17/gotutorial/sec-10-standard-packages/stub/exercise02/rw"
 )
 
 func main() {
