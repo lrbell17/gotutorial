@@ -1,0 +1,11 @@
+io.Copy()
+- copy bytes from io.Reader to io.Writer
+    - An error on read or write will stop the copy
+    - however, EOF on io.Reader value is not considered an error 
+
+io.Pipe() 
+- creates an 'in-memory' reader and writer
+- returns connected reader and writer
+- operates sort of like a channel
+
+Producer -- writer -- pipe -- reader --> Consumer
