@@ -1,0 +1,17 @@
+OS vs. File Operations
+
+OS responsibilities:
+- file creation
+- open an existing file
+- rename
+- delete
+- etc
+
+File Operations
+- Read 
+- Write
+- Close
+- File permissions
+- etc
+
+File implements io.Reader, io.Writer and io.Closer interfaces
