@@ -1,0 +1,5 @@
+Hello, good morning!
+Hi, my name is Sam
+Hey, good to see you again
+Welcome back
+&{John}
