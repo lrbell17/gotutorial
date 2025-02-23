@@ -47,6 +47,7 @@ func f64ToStr(f float64) (s string) {
 	s = intToStr(whole) + "."
 
 	next := f - float64(whole)
+
 	for i := 0; i < 3; i++ {
 		dec := int(next * 10)
 		s += intToStr(dec)
