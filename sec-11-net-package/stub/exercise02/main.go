@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -42,6 +43,9 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	// TODO 1 - say hi to the user and the current server date and time
 	// <your code here>
+	t := time.Now()
+	fmt.Fprintf(w, "<p>Hello %v</p>", name)
+	fmt.Fprintf(w, "<p>The date is %v and the time is %v</p>", t.Format(time.RFC1123)[:16], t.Format(time.Kitchen))
 
 	// ---- NO changes below here
 	fmt.Fprint(w, `<br/><a href="/">Home</a></body></html>`)
