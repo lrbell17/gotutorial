@@ -12,7 +12,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/striversity/glft/sec11/solution/lab01/cmd"
+	"github.com/lrbell17/gotutorial/sec-11-net-package/stub/lab01/cmd"
 )
 
 type (
@@ -63,7 +63,7 @@ func main() {
 	wg := new(sync.WaitGroup)
 	setupCopy(wg, conn, os.Stdin)
 	// TODO - have to remote output go to writeCounter for accounting
-	setupCopy(wg, os.Stdout, conn)
+	setupCopy(wg, &writeCounter{}, conn)
 	wg.Wait()
 }
 func setupCopy(wg *sync.WaitGroup, w io.Writer, r io.Reader) {
